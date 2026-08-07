@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Nha Trang">
     <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3143/3143212.png">
+    <link rel="apple-touch-icon" href="Nhatrang.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -84,7 +84,13 @@
         <h1 class="text-4xl md:text-5xl font-bold text-slate-800 tracking-tight mb-3">
             Our Staycation
         </h1>
-        <p class="text-slate-500 font-medium">Jan 22 - Jan 24, 2027 • Havana Hotel</p>
+        <p class="text-slate-500 font-medium mb-2">Jan 22 - Jan 24, 2027 • Havana Hotel</p>
+        
+        <!-- PWA Install Button (Hidden by default, shows when device allows install) -->
+        <button id="install-btn" class="hidden mx-auto mt-2 bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-full text-sm font-bold shadow-md shadow-teal-500/30 transition-all flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+            Install App to Phone
+        </button>
     </header>
 
     <nav class="max-w-md mx-auto px-6 mb-8 sticky top-4 z-40 fade-in" style="animation-delay: 0.1s;">
@@ -381,9 +387,40 @@
             }
 
             document.getElementById('exp-date').valueAsDate = new Date();
-            renderLocalExpenses(); // Render what we have cached immediately
-            loadExpensesFromSheet(); // Then pull live data from Google Sheet
+            renderLocalExpenses(); 
+            loadExpensesFromSheet(); 
         };
+
+        // --- PWA INSTALLATION LOGIC ---
+        let deferredPrompt;
+        const installBtn = document.getElementById('install-btn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent Chrome from automatically showing the prompt
+            e.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = e;
+            // Unhide our custom install button
+            installBtn.classList.remove('hidden');
+        });
+
+        installBtn.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+            // Show the prompt
+            deferredPrompt.prompt();
+            // Wait for user response
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                installBtn.classList.add('hidden');
+            }
+            deferredPrompt = null;
+        });
+
+        window.addEventListener('appinstalled', () => {
+            // Hide button once installed successfully
+            installBtn.classList.add('hidden');
+            showToast("App installed successfully!", "📱");
+        });
 
         // --- PULL LIVE DATA FROM GSHEET ---
         async function loadExpensesFromSheet() {
