@@ -1,0 +1,16 @@
+{
+"name": "Nha Trang Planner",
+"short_name": "Nha Trang",
+"start_url": "/NhaTrangTravel/",
+"display": "standalone",
+"background_color": "#fdfbf7",
+"theme_color": "#0f766e",
+"icons": [
+{
+"src": "https://cdn-icons-png.flaticon.com/512/3143/3143212.png",
+"sizes": "512x512",
+"type": "image/png",
+"purpose": "any maskable"
+}
+]
+}
