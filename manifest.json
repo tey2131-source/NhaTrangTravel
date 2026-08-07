@@ -1,5 +1,5 @@
 {
-"name": "Nha Trang Planner",
+"name": "Nha Trang Romantic Getaway Planner",
 "short_name": "Nha Trang",
 "start_url": "/NhaTrangTravel/",
 "display": "standalone",
@@ -7,7 +7,7 @@
 "theme_color": "#0f766e",
 "icons": [
 {
-"src": "https://cdn-icons-png.flaticon.com/512/3143/3143212.png",
+"src": "Nhatrang.png",
 "sizes": "512x512",
 "type": "image/png",
 "purpose": "any maskable"
