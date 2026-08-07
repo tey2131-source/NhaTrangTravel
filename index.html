@@ -276,10 +276,6 @@
                 
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-bold text-slate-800">Record Expense</h2>
-                    <button onclick="toggleInstructions()" class="text-sm text-teal-700 font-semibold hover:text-teal-800 flex items-center gap-1.5 bg-teal-50/80 backdrop-blur-md px-3.5 py-2 rounded-full border border-teal-200/50 transition-colors shadow-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        GSheet Fix
-                    </button>
                 </div>
 
                 <form id="expense-form" onsubmit="submitExpense(event)" class="space-y-5">
@@ -332,7 +328,12 @@
 
             <div class="glass-card rounded-3xl shadow-sm border border-slate-200/60 overflow-hidden mb-10">
                 <div class="bg-teal-900 text-white p-5 md:px-7 flex justify-between items-center">
-                    <h3 class="font-bold text-lg">Trip Ledger</h3>
+                    <div class="flex items-center gap-3">
+                        <h3 class="font-bold text-lg">Trip Ledger</h3>
+                        <button type="button" onclick="loadExpensesFromSheet()" class="p-2 bg-teal-800 hover:bg-teal-700 text-teal-100 rounded-full transition-colors shadow-sm" title="Manual Sync with Google Sheets">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+                        </button>
+                    </div>
                     <div class="text-right">
                         <div class="text-xs text-teal-200 font-medium uppercase tracking-wider mb-0.5">Total SGD Spent</div>
                         <div class="text-3xl font-bold" id="total-amount">$0.00</div>
@@ -341,88 +342,6 @@
 
                 <!-- ADDED THE MISSING EXPENSE LIST CONTAINER -->
                 <div id="expense-list-container" class="divide-y divide-slate-100 bg-white"></div>
-
-                <div class="p-6 bg-slate-50">
-                    <h3 class="font-bold text-slate-800 text-lg border-b pb-2 mb-4">How to Fix it & Enable Live Sync:</h3>
-                    
-                    <ol class="list-decimal pl-5 space-y-4 font-medium text-slate-700">
-                        <li>Open your Google Apps Script project.</li>
-                        <li>Replace your current code with the new code below. <br>
-                        <span class="text-teal-600 font-normal block mt-1">(This new code contains <code>doPost</code> to save data, and a new <code>doGet</code> to pull your data live!).</span></li>
-                        <li>Click <b>Deploy</b> -> <b>Manage deployments</b>.</li>
-                        <li>Click the pencil (Edit) icon.</li>
-                        <li>Make sure "Who has access" is set to <b>Anyone</b>.</li>
-                        <li>Click <b>Deploy</b> to save.</li>
-                    </ol>
-
-                    <div class="relative mt-4">
-                        <div class="absolute right-3 top-3">
-                            <button onclick="copyCode()" class="bg-white/20 hover:bg-white/40 text-teal-100 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition-colors shadow-sm backdrop-blur-sm border border-white/10">Copy Code</button>
-                        </div>
-<textarea id="gas-code" class="w-full h-72 bg-slate-900 text-teal-400 p-5 rounded-2xl font-mono text-xs focus:outline-none resize-none leading-relaxed" readonly>
-function doPost(e) {
-  try {
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Nha Trang 2027 Expenses");
-    const data = JSON.parse(e.postData.contents);
-    
-    // Find the first empty row by looking ONLY at Column A.
-    const columnA = sheet.getRange("A:A").getValues();
-    let emptyRow = 1;
-    while (emptyRow <= columnA.length && columnA[emptyRow - 1][0] !== "") {
-      emptyRow++;
-    }
-    
-    // Write data strictly to Columns A, B, C, D, E
-    sheet.getRange(emptyRow, 1, 1, 5).setValues([[
-      data.date, 
-      data.category, 
-      data.description, 
-      data.sgd,
-      data.vnd
-    ]]);
-    
-    return ContentService.createTextOutput(JSON.stringify({"result": "success"}));
-  } catch(error) {
-    return ContentService.createTextOutput(JSON.stringify({"error": error.toString()}));
-  }
-}
-
-function doGet(e) {
-  try {
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Nha Trang 2027 Expenses");
-    const values = sheet.getDataRange().getValues();
-    
-    // Skip header row (row 1) and only grab rows with a date
-    const rows = values.slice(1).filter(row => row[0] !== ""); 
-    
-    const expenses = rows.map(row => {
-      let dateVal = row[0];
-      // Format Google Sheet Date object to standard YYYY-MM-DD
-      if (Object.prototype.toString.call(dateVal) === '[object Date]') {
-        dateVal = Utilities.formatDate(dateVal, Session.getScriptTimeZone(), "yyyy-MM-dd");
-      } else {
-        dateVal = String(dateVal);
-      }
-      
-      return {
-        date: dateVal,
-        category: String(row[1]),
-        description: String(row[2]),
-        sgd: Number(row[3]) || 0,
-        vnd: Number(row[4]) || 0
-      };
-    });
-    
-    return ContentService.createTextOutput(JSON.stringify(expenses))
-      .setMimeType(ContentService.MimeType.JSON);
-  } catch(error) {
-    return ContentService.createTextOutput(JSON.stringify({"error": error.toString()}))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
-}
-</textarea>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -691,31 +610,6 @@ function doGet(e) {
             setTimeout(() => {
                 toast.classList.add('translate-y-20', 'opacity-0');
             }, 3500);
-        }
-
-        function toggleInstructions() {
-            const modal = document.getElementById('instructions-modal');
-            const content = document.getElementById('modal-content');
-            
-            if(modal.classList.contains('hidden')) {
-                modal.classList.remove('hidden');
-                void modal.offsetWidth; // Reflow
-                modal.classList.remove('opacity-0');
-                content.classList.remove('scale-95');
-            } else {
-                modal.classList.add('opacity-0');
-                content.classList.add('scale-95');
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                }, 300);
-            }
-        }
-
-        function copyCode() {
-            const code = document.getElementById('gas-code');
-            code.select();
-            document.execCommand('copy');
-            showToast("Script code copied!", "📋");
         }
     </script>
 </body>
