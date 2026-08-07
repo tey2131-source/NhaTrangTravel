@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nha Trang Staycation Planner</title>
+    
+    <meta name="theme-color" content="#0f766e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Nha Trang">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3143/3143212.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -366,6 +374,12 @@
 
         // --- INITIALIZATION ---
         window.onload = () => {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('sw.js')
+                    .then(() => console.log("PWA Ready!"))
+                    .catch(err => console.log("PWA Error:", err));
+            }
+
             document.getElementById('exp-date').valueAsDate = new Date();
             renderLocalExpenses(); // Render what we have cached immediately
             loadExpensesFromSheet(); // Then pull live data from Google Sheet
