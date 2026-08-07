@@ -63,6 +63,20 @@
             color: #0f766e;
         }
 
+        /* Map Links */
+        .map-link {
+            color: #0f766e;
+            font-weight: 500;
+            text-decoration: underline;
+            text-decoration-color: rgba(15, 118, 110, 0.3);
+            text-underline-offset: 2px;
+            transition: all 0.2s;
+        }
+        .map-link:hover {
+            color: #115e59;
+            text-decoration-color: rgba(15, 118, 110, 0.8);
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -116,25 +130,38 @@
                     Day 1 <span class="text-sm font-medium text-slate-500 bg-slate-200/50 px-2.5 py-1 rounded-lg">Fri, Jan 22</span>
                 </h2>
                 
-                <div class="space-y-4">
+                <div class="flex flex-col gap-2">
                     <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4 border-l-4 border-l-teal-500">
                         <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">6:25 PM</div>
                         <div>
                             <h3 class="font-bold text-lg mb-1">Arrival in Nha Trang</h3>
-                            <p class="text-sm text-slate-600">Cam Ranh Int. Airport (CXR) - TR 548</p>
+                            <p class="text-sm text-slate-600">
+                                <a href="https://www.google.com/maps/search/?api=1&query=Cam+Ranh+International+Airport" target="_blank" class="map-link">📍 Cam Ranh Int. Airport (CXR)</a> - TR 548
+                            </p>
                         </div>
+                    </div>
+
+                    <!-- Transit -->
+                    <div class="pl-4 md:pl-[7.5rem] py-1 flex items-center gap-2 opacity-80">
+                        <div class="bg-white rounded-full p-1.5 shadow-sm border border-slate-200 text-[10px] leading-none">🚕</div>
+                        <div class="text-[11px] font-bold text-slate-400 tracking-widest uppercase">45 min drive (35 km)</div>
                     </div>
 
                     <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
                         <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">7:00 PM</div>
                         <div>
                             <h3 class="font-bold text-lg mb-1">Transport to Hotel</h3>
-                            <p class="text-sm text-slate-600 mb-2">GrabCar to Havana Hotel.</p>
+                            <p class="text-sm text-slate-600 mb-2">
+                                GrabCar to <a href="https://www.google.com/maps/search/?api=1&query=Havana+Hotel+Nha+Trang" target="_blank" class="map-link">📍 Havana Hotel</a>.
+                            </p>
                             <div class="bg-amber-50 text-amber-800 text-sm px-3 py-2 rounded-xl border border-amber-200/60 shadow-sm inline-block">
                                 💡 Est. 350k - 450k VND. Avoid fixed-price taxis.
                             </div>
                         </div>
                     </div>
+
+                    <!-- Transit (Already at hotel) -->
+                    <div class="pl-4 md:pl-[7.5rem] py-1"></div>
 
                     <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
                         <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">8:00 PM</div>
@@ -144,11 +171,19 @@
                         </div>
                     </div>
 
+                    <!-- Transit -->
+                    <div class="pl-4 md:pl-[7.5rem] py-1 flex items-center gap-2 opacity-80">
+                        <div class="bg-white rounded-full p-1.5 shadow-sm border border-slate-200 text-[10px] leading-none">🚶</div>
+                        <div class="text-[11px] font-bold text-slate-400 tracking-widest uppercase">5 min walk (400 m)</div>
+                    </div>
+
                     <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
                         <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">8:45 PM</div>
                         <div>
                             <h3 class="font-bold text-lg mb-1">Night Market & Late Dinner</h3>
-                            <p class="text-sm text-slate-600 mb-1">Nha Trang Night Market (Near Lotus Tower)</p>
+                            <p class="text-sm text-slate-600 mb-1">
+                                <a href="https://www.google.com/maps/search/?api=1&query=Nha+Trang+Night+Market" target="_blank" class="map-link">📍 Nha Trang Night Market</a> (Near Lotus Tower)
+                            </p>
                             <p class="text-sm text-slate-500">Grab casual street food or snacks. Haggle hard for souvenirs!</p>
                         </div>
                     </div>
@@ -162,7 +197,7 @@
                     Day 2 <span class="text-sm font-medium text-slate-500 bg-slate-200/50 px-2.5 py-1 rounded-lg">Sat, Jan 23</span>
                 </h2>
                 
-                <div class="space-y-4">
+                <div class="flex flex-col gap-2">
                     <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
                         <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">9:00 AM</div>
                         <div>
@@ -171,48 +206,88 @@
                         </div>
                     </div>
 
+                    <!-- Transit -->
+                    <div class="pl-4 md:pl-[7.5rem] py-1 flex items-center gap-2 opacity-80">
+                        <div class="bg-white rounded-full p-1.5 shadow-sm border border-slate-200 text-[10px] leading-none">🚕</div>
+                        <div class="text-[11px] font-bold text-slate-400 tracking-widest uppercase">7 min drive (2.5 km)</div>
+                    </div>
+
                     <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
                         <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">10:30 AM</div>
                         <div>
                             <h3 class="font-bold text-lg mb-1">Dam Market (Chợ Đầm)</h3>
-                            <p class="text-sm text-slate-600">Iconic architecture. Good for local dried goods like mango and squid.</p>
+                            <p class="text-sm text-slate-600">
+                                <a href="https://www.google.com/maps/search/?api=1&query=Dam+Market+Nha+Trang" target="_blank" class="map-link">📍 Iconic circular market</a>. Good for local dried goods like mango and squid.
+                            </p>
                         </div>
+                    </div>
+
+                    <!-- Transit -->
+                    <div class="pl-4 md:pl-[7.5rem] py-1 flex items-center gap-2 opacity-80">
+                        <div class="bg-white rounded-full p-1.5 shadow-sm border border-slate-200 text-[10px] leading-none">🚕</div>
+                        <div class="text-[11px] font-bold text-slate-400 tracking-widest uppercase">5 min drive (1.5 km)</div>
                     </div>
 
                     <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
                         <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">12:30 PM</div>
                         <div>
                             <h3 class="font-bold text-lg mb-1">Lunch at Bún Cá Mịn</h3>
-                            <p class="text-sm text-slate-600 mb-1">170 Bach Dang St.</p>
+                            <p class="text-sm text-slate-600 mb-1">
+                                <a href="https://www.google.com/maps/search/?api=1&query=Bún+Cá+Mịn+170+Bach+Dang+Nha+Trang" target="_blank" class="map-link">📍 170 Bach Dang St.</a>
+                            </p>
                             <p class="text-sm text-slate-500">Famous local fish cake noodle soup.</p>
                         </div>
+                    </div>
+
+                    <!-- Transit -->
+                    <div class="pl-4 md:pl-[7.5rem] py-1 flex items-center gap-2 opacity-80">
+                        <div class="bg-white rounded-full p-1.5 shadow-sm border border-slate-200 text-[10px] leading-none">🚕</div>
+                        <div class="text-[11px] font-bold text-slate-400 tracking-widest uppercase">4 min drive (1.2 km)</div>
                     </div>
 
                     <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
                         <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">2:00 PM</div>
                         <div>
                             <h3 class="font-bold text-lg mb-1">Shopping & AC Break</h3>
-                            <p class="text-sm text-slate-600">Gold Coast Mall / Lotte Mart (1 Tran Phu)</p>
+                            <p class="text-sm text-slate-600">
+                                <a href="https://www.google.com/maps/search/?api=1&query=Gold+Coast+Mall+Nha+Trang" target="_blank" class="map-link">📍 Gold Coast Mall</a> / Lotte Mart (1 Tran Phu)
+                            </p>
                             <p class="text-sm text-slate-500">Supermarket snacks and enjoy the air conditioning.</p>
                         </div>
+                    </div>
+
+                    <!-- Transit -->
+                    <div class="pl-4 md:pl-[7.5rem] py-1 flex items-center gap-2 opacity-80">
+                        <div class="bg-white rounded-full p-1.5 shadow-sm border border-slate-200 text-[10px] leading-none">🚕</div>
+                        <div class="text-[11px] font-bold text-slate-400 tracking-widest uppercase">15 min drive (7 km)</div>
                     </div>
 
                     <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4 border-l-4 border-l-rose-400">
                         <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">4:30 PM</div>
                         <div>
                             <h3 class="font-bold text-lg mb-1">Vinpearl Harbour & Cable Car</h3>
-                            <p class="text-sm text-slate-600 mb-2">Sunset cable car ride & harbour walk.</p>
+                            <p class="text-sm text-slate-600 mb-2">
+                                <a href="https://www.google.com/maps/search/?api=1&query=Vinpearl+Cable+Car+Terminal+Nha+Trang" target="_blank" class="map-link">📍 Sunset cable car ride & harbour walk</a>.
+                            </p>
                             <div class="bg-rose-50 text-rose-700 text-sm px-3 py-2 rounded-xl border border-rose-200/60 shadow-sm inline-block font-medium">
                                 ⚠️ Buy "Harbour" Ticket ONLY at counter. No VinWonders ticket.
                             </div>
                         </div>
                     </div>
 
+                    <!-- Transit -->
+                    <div class="pl-4 md:pl-[7.5rem] py-1 flex items-center gap-2 opacity-80">
+                        <div class="bg-white rounded-full p-1.5 shadow-sm border border-slate-200 text-[10px] leading-none">🚕</div>
+                        <div class="text-[11px] font-bold text-slate-400 tracking-widest uppercase">12 min drive (6 km)</div>
+                    </div>
+
                     <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4 border-l-4 border-l-teal-500">
                         <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">7:00 PM</div>
                         <div>
                             <h3 class="font-bold text-lg mb-1">Seafood Buffet Dinner</h3>
-                            <p class="text-sm text-slate-600 mb-1">The Square (Novotel)</p>
+                            <p class="text-sm text-slate-600 mb-1">
+                                <a href="https://www.google.com/maps/search/?api=1&query=The+Square+Novotel+Nha+Trang" target="_blank" class="map-link">📍 The Square (Novotel)</a>
+                            </p>
                             <p class="text-sm text-slate-500">~800k VND++/pax. Check for "Buy 1 Free 1" or hotel discounts ahead of time.</p>
                         </div>
                     </div>
@@ -226,7 +301,7 @@
                     Day 3 <span class="text-sm font-medium text-slate-500 bg-slate-200/50 px-2.5 py-1 rounded-lg">Sun, Jan 24</span>
                 </h2>
                 
-                <div class="space-y-4">
+                <div class="flex flex-col gap-2">
                     <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
                         <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">9:30 AM</div>
                         <div>
@@ -235,40 +310,70 @@
                         </div>
                     </div>
 
+                    <!-- Transit (Already at hotel) -->
+                    <div class="pl-4 md:pl-[7.5rem] py-1"></div>
+
                     <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4 border-l-4 border-l-teal-500">
                         <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">10:00 AM</div>
                         <div>
                             <h3 class="font-bold text-lg mb-1">Couples Spa Retreat</h3>
-                            <p class="text-sm text-slate-600 mb-1">Charm Spa Grand (43 Dong Da)</p>
-                            <p class="text-sm text-slate-500">"Sweetheart Couple" package (~150 mins). Ultimate relaxation.</p>
+                            <p class="text-sm text-slate-600 mb-1">
+                                <a href="https://www.google.com/maps/search/?api=1&query=Havana+Hotel+Nha+Trang" target="_blank" class="map-link">📍 Havana Spa</a> (Inside Hotel)
+                            </p>
+                            <p class="text-sm text-slate-500">Ultimate relaxation right at the hotel for a stress-free morning.</p>
                         </div>
+                    </div>
+
+                    <!-- Transit -->
+                    <div class="pl-4 md:pl-[7.5rem] py-1 flex items-center gap-2 opacity-80">
+                        <div class="bg-white rounded-full p-1.5 shadow-sm border border-slate-200 text-[10px] leading-none">🚕</div>
+                        <div class="text-[11px] font-bold text-slate-400 tracking-widest uppercase">3 min drive (1 km)</div>
                     </div>
 
                     <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
                         <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">1:00 PM</div>
                         <div>
                             <h3 class="font-bold text-lg mb-1">Lunch at Pizza 4P's</h3>
-                            <p class="text-sm text-slate-600 mb-1">Nha Trang Branch</p>
+                            <p class="text-sm text-slate-600 mb-1">
+                                <a href="https://www.google.com/maps/search/?api=1&query=Pizza+4P's+Nha+Trang" target="_blank" class="map-link">📍 Nha Trang Branch</a>
+                            </p>
                             <p class="text-sm text-slate-500">Famous burrata pizza and crab pasta. Highly recommended to reserve a table online.</p>
                         </div>
+                    </div>
+
+                    <!-- Transit -->
+                    <div class="pl-4 md:pl-[7.5rem] py-1 flex items-center gap-2 opacity-80">
+                        <div class="bg-white rounded-full p-1.5 shadow-sm border border-slate-200 text-[10px] leading-none">🚕</div>
+                        <div class="text-[11px] font-bold text-slate-400 tracking-widest uppercase">3 min drive (1 km)</div>
                     </div>
 
                     <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
                         <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">3:30 PM</div>
                         <div>
                             <h3 class="font-bold text-lg mb-1">Cafe & Cake</h3>
-                            <p class="text-sm text-slate-600">Red Gate Bakery or Iced Coffee</p>
+                            <p class="text-sm text-slate-600">
+                                <a href="https://www.google.com/maps/search/?api=1&query=Red+Gate+Bakery+Nha+Trang" target="_blank" class="map-link">📍 Red Gate Bakery</a> or Iced Coffee
+                            </p>
                             <p class="text-sm text-slate-500">Relax before the flight with some coffee and birthday cake.</p>
                         </div>
+                    </div>
+
+                    <!-- Transit -->
+                    <div class="pl-4 md:pl-[7.5rem] py-1 flex items-center gap-2 opacity-80">
+                        <div class="bg-white rounded-full p-1.5 shadow-sm border border-slate-200 text-[10px] leading-none">🚕</div>
+                        <div class="text-[11px] font-bold text-slate-400 tracking-widest uppercase">45 min drive (35 km)</div>
                     </div>
 
                     <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
                         <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">4:45 PM</div>
                         <div>
                             <h3 class="font-bold text-lg mb-1">Transport to Airport</h3>
-                            <p class="text-sm text-slate-600">GrabCar to Cam Ranh Airport (CXR).</p>
+                            <p class="text-sm text-slate-600">GrabCar to <a href="https://www.google.com/maps/search/?api=1&query=Cam+Ranh+International+Airport" target="_blank" class="map-link">📍 Cam Ranh Airport (CXR)</a>.</p>
                         </div>
                     </div>
+
+                    <!-- Transit (Already at airport) -->
+                    <div class="pl-4 md:pl-[7.5rem] py-1"></div>
 
                     <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4 bg-teal-50/70 border border-teal-100">
                         <div class="md:w-24 text-teal-700 font-semibold shrink-0 mt-1">7:25 PM</div>
@@ -285,7 +390,6 @@
         <section id="section-expenses" class="hidden space-y-6 fade-in">
             
             <div class="glass-card rounded-3xl p-5 md:p-7 shadow-sm border border-slate-200/60 relative overflow-hidden">
-                <!-- Decorative background blob -->
                 <div class="absolute -right-20 -top-20 w-64 h-64 bg-teal-100/50 rounded-full blur-3xl -z-10"></div>
                 
                 <div class="flex justify-between items-center mb-6">
@@ -327,7 +431,6 @@
                             </div>
                         </div>
                         
-                        <!-- Realtime conversion display -->
                         <div class="sm:col-span-2 flex justify-end -mt-2">
                             <span id="conversion-display" class="text-sm font-semibold text-amber-700 bg-amber-50 px-4 py-1.5 rounded-full border border-amber-200/60 shadow-sm">≈ $0.00 SGD</span>
                         </div>
@@ -344,6 +447,7 @@
                 <div class="bg-teal-900 text-white p-5 md:px-7 flex justify-between items-center">
                     <div class="flex items-center gap-3">
                         <h3 class="font-bold text-lg">Trip Ledger</h3>
+                        
                         <button type="button" onclick="loadExpensesFromSheet()" class="p-2 bg-teal-800 hover:bg-teal-700 text-teal-100 rounded-full transition-colors shadow-sm" title="Manual Sync with Google Sheets">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
                         </button>
@@ -354,11 +458,10 @@
                     </div>
                 </div>
 
-                <!-- ADDED THE MISSING EXPENSE LIST CONTAINER -->
                 <div id="expense-list-container" class="divide-y divide-slate-100 bg-white"></div>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 translate-y-20 opacity-0 bg-slate-800 text-white px-6 py-3.5 rounded-full shadow-2xl transition-all duration-300 z-50 font-medium text-sm flex items-center gap-2">
         <span id="toast-icon">✅</span>
@@ -366,26 +469,22 @@
     </div>
 
     <script>
-        // --- CONSTANTS ---
-        // Your Hardcoded Deployment URL (from User's provided link)
+        // --- HARDCODED APPS SCRIPT URL ---
         const GAS_URL = "https://script.google.com/macros/s/AKfycbxem0-1HK7zUVqf0bsmr9f1d14SMZDExehW3awjsq24J4om_PI0tvU4-P-oLoYHrPoKOA/exec";
         
         // Exchange rate (approx 1 SGD = 20,500 VND)
         const EXCHANGE_RATE = 20500;
 
-        // --- STATE ---
         let appState = {
-            localExpenses: JSON.parse(localStorage.getItem('nhaTrangExpenses_v2')) || []
+            localExpenses: JSON.parse(localStorage.getItem('nhaTrangExpenses_v3')) || []
         };
 
-        // --- INITIALIZATION ---
         window.onload = () => {
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('sw.js')
                     .then(() => console.log("PWA Ready!"))
                     .catch(err => console.log("PWA Error:", err));
             }
-
             document.getElementById('exp-date').valueAsDate = new Date();
             renderLocalExpenses(); 
             loadExpensesFromSheet(); 
@@ -396,19 +495,14 @@
         const installBtn = document.getElementById('install-btn');
 
         window.addEventListener('beforeinstallprompt', (e) => {
-            // Prevent Chrome from automatically showing the prompt
             e.preventDefault();
-            // Stash the event so it can be triggered later
             deferredPrompt = e;
-            // Unhide our custom install button
             installBtn.classList.remove('hidden');
         });
 
         installBtn.addEventListener('click', async () => {
             if (!deferredPrompt) return;
-            // Show the prompt
             deferredPrompt.prompt();
-            // Wait for user response
             const { outcome } = await deferredPrompt.userChoice;
             if (outcome === 'accepted') {
                 installBtn.classList.add('hidden');
@@ -417,44 +511,37 @@
         });
 
         window.addEventListener('appinstalled', () => {
-            // Hide button once installed successfully
             installBtn.classList.add('hidden');
             showToast("App installed successfully!", "📱");
         });
 
-        // --- PULL LIVE DATA FROM GSHEET ---
         async function loadExpensesFromSheet() {
             const container = document.getElementById('expense-list-container');
             const totalAmount = document.getElementById('total-amount');
             
-            // Show loading state
+            if(!container) return; // safety check
+            
             totalAmount.innerHTML = `<span class="animate-pulse text-xl text-teal-300">Syncing...</span>`;
             
             try {
-                // Perform a GET request to your Apps Script URL
                 const response = await fetch(GAS_URL);
-                
                 if (!response.ok) throw new Error("Network response was not ok");
                 
                 const liveData = await response.json();
                 
                 if (Array.isArray(liveData)) {
                     appState.localExpenses = liveData;
-                    // Cache it locally so it loads instantly next time
-                    localStorage.setItem('nhaTrangExpenses_v2', JSON.stringify(appState.localExpenses));
+                    localStorage.setItem('nhaTrangExpenses_v3', JSON.stringify(appState.localExpenses));
                     renderLocalExpenses();
-                } else {
-                    console.warn("Unexpected data format from sheet", liveData);
-                    renderLocalExpenses(); // Fallback to local
+                    showToast("Synced with Google Sheets!", "🔄");
                 }
             } catch(error) {
-                console.warn("Live fetch unavailable (waiting for GAS deployment or offline). Showing local data.", error.message);
-                renderLocalExpenses(); // Fallback to local gracefully
-                showToast("Viewing offline mode.", "⚠️");
+                console.warn("Live fetch failed. Showing local data.", error);
+                renderLocalExpenses(); 
+                showToast("Offline Mode (No Sync)", "⚠️");
             }
         }
 
-        // --- UI TAB SWITCHING ---
         function switchTab(tabId) {
             const itinerarySec = document.getElementById('section-itinerary');
             const expensesSec = document.getElementById('section-expenses');
@@ -477,7 +564,6 @@
             }
         }
 
-        // --- CURRENCY CALCULATOR UI ---
         function updateConversion() {
             const amtStr = document.getElementById('exp-amount').value;
             const amt = parseFloat(amtStr) || 0;
@@ -495,14 +581,13 @@
             }
         }
 
-        // --- RENDER EXPENSE LEDGER (GROUPED BY DAY) ---
         function renderLocalExpenses() {
             const container = document.getElementById('expense-list-container');
-            if (!container) return; // Prevent error if container is null
+            if (!container) return; // Exit if DOM isn't ready
+            
             container.innerHTML = ''; 
             let totalSGD = 0; 
 
-            // Base pre-trip data
             const preTrip = [
                 { date: 'Pre-Trip', category: 'Flight ✈️', description: 'Sg-Nha Trang (Seats incld)', sgd: 283.03, vnd: 0 },
                 { date: 'Pre-Trip', category: 'Hotel 🏨', description: 'Havana Junior King suite', sgd: 0, vnd: 0 }
@@ -518,7 +603,6 @@
                 'Other': []
             };
 
-            // Categorize
             allExpenses.forEach(exp => {
                 const s = parseFloat(exp.sgd) || 0;
                 totalSGD += s;
@@ -536,29 +620,24 @@
                 }
             });
 
-            // Update Total Header
             document.getElementById('total-amount').innerText = `$${totalSGD.toFixed(2)}`;
 
-            // Render Groups
             const order = ['Day 1 (Jan 22)', 'Day 2 (Jan 23)', 'Day 3 (Jan 24)', 'Other', 'Pre-Trip'];
             
             order.forEach(groupName => {
                 const groupItems = groups[groupName];
                 if(groupItems.length === 0) return;
 
-                // Group Header
                 const headerDiv = document.createElement('div');
                 headerDiv.className = 'bg-slate-50/80 px-5 py-2.5 text-xs font-bold text-slate-500 uppercase tracking-wider border-y border-slate-100';
                 headerDiv.innerText = groupName;
                 container.appendChild(headerDiv);
 
-                // Group Items
                 groupItems.forEach(exp => {
                     const itemDiv = document.createElement('div');
                     itemDiv.className = 'p-5 flex justify-between items-center bg-white hover:bg-slate-50 transition-colors';
                     
                     const isPreTrip = exp.date === 'Pre-Trip';
-                    // Determine which currency to show prominently
                     const mainAmountStr = parseFloat(exp.sgd) > 0 && isPreTrip 
                         ? `$${parseFloat(exp.sgd).toFixed(2)}` 
                         : (parseFloat(exp.vnd) > 0 ? `${parseFloat(exp.vnd).toLocaleString('en-US')} ₫` : `$${parseFloat(exp.sgd).toFixed(2)}`);
@@ -589,7 +668,6 @@
             });
         }
 
-        // --- SUBMIT EXPENSE ---
         async function submitExpense(e) {
             e.preventDefault();
             
@@ -618,29 +696,26 @@
             const payload = { date, category, description: desc, sgd, vnd };
 
             try {
-                // Post to Google Apps Script
                 await fetch(GAS_URL, {
                     method: 'POST',
-                    mode: 'no-cors', // Essential for Apps script to bypass strict CORS blocking for writes
+                    mode: 'no-cors', 
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
 
-                // Optimistically add to list and render instantly
                 appState.localExpenses.push(payload);
-                localStorage.setItem('nhaTrangExpenses_v2', JSON.stringify(appState.localExpenses));
+                localStorage.setItem('nhaTrangExpenses_v3', JSON.stringify(appState.localExpenses));
                 
-                // Reset Form (keep date and category)
                 document.getElementById('exp-desc').value = '';
                 document.getElementById('exp-amount').value = '';
-                document.getElementById('exp-currency').value = 'VND'; // default back to VND
+                document.getElementById('exp-currency').value = 'VND'; 
                 updateConversion();
                 renderLocalExpenses();
                 
                 showToast("Saved to Google Sheet!", "✅");
                 
-                // Silently refresh full list in background just to be perfectly synced
-                loadExpensesFromSheet();
+                // Silently pull full list in background just to be perfectly synced
+                setTimeout(loadExpensesFromSheet, 1000);
 
             } catch (error) {
                 console.error("Error:", error);
@@ -651,7 +726,6 @@
             }
         }
 
-        // --- UTILS ---
         function showToast(msg, icon) {
             const toast = document.getElementById('toast');
             document.getElementById('toast-msg').innerText = msg;
