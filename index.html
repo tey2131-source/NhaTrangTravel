@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nha Trang Staycation Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #fdfbf7; /* Warm sand */
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+
+        /* Tabs */
+        .tab-active {
+            background-color: #0f766e; /* Tropical Teal */
+            color: white;
+            box-shadow: 0 4px 12px -2px rgba(15, 118, 110, 0.4);
+        }
+        
+        .tab-inactive {
+            background-color: transparent;
+            color: #64748b;
+        }
+        
+        .tab-inactive:hover {
+            background-color: rgba(15, 118, 110, 0.1);
+            color: #0f766e;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen pb-20 selection:bg-teal-200 selection:text-teal-900">
+
+    <header class="pt-10 pb-6 px-6 max-w-3xl mx-auto text-center fade-in">
+        <div class="inline-flex items-center justify-center space-x-2 bg-teal-50 text-teal-700 px-4 py-1.5 rounded-full text-sm font-medium mb-4 shadow-sm border border-teal-100">
+            <span>✈️ Singapore</span>
+            <span>→</span>
+            <span>🇻🇳 Nha Trang</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold text-slate-800 tracking-tight mb-3">
+            Our Staycation
+        </h1>
+        <p class="text-slate-500 font-medium">Jan 22 - Jan 24, 2027 • Havana Hotel</p>
+    </header>
+
+    <nav class="max-w-md mx-auto px-6 mb-8 sticky top-4 z-40 fade-in" style="animation-delay: 0.1s;">
+        <div class="glass-card rounded-2xl p-1.5 flex gap-2">
+            <button id="tab-itinerary" onclick="switchTab('itinerary')" class="flex-1 py-2.5 rounded-xl font-medium text-sm transition-all tab-active">
+                Itinerary
+            </button>
+            <button id="tab-expenses" onclick="switchTab('expenses')" class="flex-1 py-2.5 rounded-xl font-medium text-sm transition-all tab-inactive">
+                Expenses
+            </button>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-4 md:px-6">
+
+        <!-- ================= ITINERARY SECTION ================= -->
+        <section id="section-itinerary" class="block space-y-10 fade-in" style="animation-delay: 0.2s;">
+            
+            <!-- Day 1 -->
+            <div class="relative pl-6 md:pl-8 before:absolute before:inset-y-0 before:left-2 before:w-0.5 before:bg-gradient-to-b before:from-teal-500 before:to-teal-200">
+                <div class="absolute left-0 top-1 w-4 h-4 rounded-full bg-teal-500 border-4 border-white shadow-sm"></div>
+                <h2 class="text-2xl font-bold text-slate-800 mb-5 flex items-center gap-2">
+                    Day 1 <span class="text-sm font-medium text-slate-500 bg-slate-200/50 px-2.5 py-1 rounded-lg">Fri, Jan 22</span>
+                </h2>
+                
+                <div class="space-y-4">
+                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4 border-l-4 border-l-teal-500">
+                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">6:25 PM</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Arrival in Nha Trang</h3>
+                            <p class="text-sm text-slate-600">Cam Ranh Int. Airport (CXR) - TR 548</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
+                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">7:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Transport to Hotel</h3>
+                            <p class="text-sm text-slate-600 mb-2">GrabCar to Havana Hotel.</p>
+                            <div class="bg-amber-50 text-amber-800 text-sm px-3 py-2 rounded-xl border border-amber-200/60 shadow-sm inline-block">
+                                💡 Est. 350k - 450k VND. Avoid fixed-price taxis.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
+                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">8:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Check-in & Settle</h3>
+                            <p class="text-sm text-slate-600">Havana Hotel (Junior King Suite). Freshen up after the flight!</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
+                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">8:45 PM</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Night Market & Late Dinner</h3>
+                            <p class="text-sm text-slate-600 mb-1">Nha Trang Night Market (Near Lotus Tower)</p>
+                            <p class="text-sm text-slate-500">Grab casual street food or snacks. Haggle hard for souvenirs!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="relative pl-6 md:pl-8 before:absolute before:inset-y-0 before:left-2 before:w-0.5 before:bg-gradient-to-b before:from-teal-500 before:to-teal-200">
+                <div class="absolute left-0 top-1 w-4 h-4 rounded-full bg-teal-500 border-4 border-white shadow-sm"></div>
+                <h2 class="text-2xl font-bold text-slate-800 mb-5 flex items-center gap-2">
+                    Day 2 <span class="text-sm font-medium text-slate-500 bg-slate-200/50 px-2.5 py-1 rounded-lg">Sat, Jan 23</span>
+                </h2>
+                
+                <div class="space-y-4">
+                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
+                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">9:00 AM</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Breakfast & Beach</h3>
+                            <p class="text-sm text-slate-600">Havana Hotel. Use the underground tunnel to access the private beach section.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
+                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">10:30 AM</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Dam Market (Chợ Đầm)</h3>
+                            <p class="text-sm text-slate-600">Iconic architecture. Good for local dried goods like mango and squid.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
+                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">12:30 PM</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Lunch at Bún Cá Mịn</h3>
+                            <p class="text-sm text-slate-600 mb-1">170 Bach Dang St.</p>
+                            <p class="text-sm text-slate-500">Famous local fish cake noodle soup.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
+                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">2:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Shopping & AC Break</h3>
+                            <p class="text-sm text-slate-600">Gold Coast Mall / Lotte Mart (1 Tran Phu)</p>
+                            <p class="text-sm text-slate-500">Supermarket snacks and enjoy the air conditioning.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4 border-l-4 border-l-rose-400">
+                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">4:30 PM</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Vinpearl Harbour & Cable Car</h3>
+                            <p class="text-sm text-slate-600 mb-2">Sunset cable car ride & harbour walk.</p>
+                            <div class="bg-rose-50 text-rose-700 text-sm px-3 py-2 rounded-xl border border-rose-200/60 shadow-sm inline-block font-medium">
+                                ⚠️ Buy "Harbour" Ticket ONLY at counter. No VinWonders ticket.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4 border-l-4 border-l-teal-500">
+                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">7:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Seafood Buffet Dinner</h3>
+                            <p class="text-sm text-slate-600 mb-1">The Square (Novotel)</p>
+                            <p class="text-sm text-slate-500">~800k VND++/pax. Check for "Buy 1 Free 1" or hotel discounts ahead of time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="relative pl-6 md:pl-8 before:absolute before:inset-y-0 before:left-2 before:w-0.5 before:bg-gradient-to-b before:from-teal-500 before:to-transparent">
+                <div class="absolute left-0 top-1 w-4 h-4 rounded-full bg-teal-500 border-4 border-white shadow-sm"></div>
+                <h2 class="text-2xl font-bold text-slate-800 mb-5 flex items-center gap-2">
+                    Day 3 <span class="text-sm font-medium text-slate-500 bg-slate-200/50 px-2.5 py-1 rounded-lg">Sun, Jan 24</span>
+                </h2>
+                
+                <div class="space-y-4">
+                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
+                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">9:30 AM</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Check-out & Bags</h3>
+                            <p class="text-sm text-slate-600">Leave bags securely at Havana Hotel bell desk.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4 border-l-4 border-l-teal-500">
+                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">10:00 AM</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Couples Spa Retreat</h3>
+                            <p class="text-sm text-slate-600 mb-1">Charm Spa Grand (43 Dong Da)</p>
+                            <p class="text-sm text-slate-500">"Sweetheart Couple" package (~150 mins). Ultimate relaxation.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
+                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">1:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Lunch at Pizza 4P's</h3>
+                            <p class="text-sm text-slate-600 mb-1">Nha Trang Branch</p>
+                            <p class="text-sm text-slate-500">Famous burrata pizza and crab pasta. Highly recommended to reserve a table online.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
+                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">3:30 PM</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Cafe & Cake</h3>
+                            <p class="text-sm text-slate-600">Red Gate Bakery or Iced Coffee</p>
+                            <p class="text-sm text-slate-500">Relax before the flight with some coffee and birthday cake.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
+                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">4:45 PM</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Transport to Airport</h3>
+                            <p class="text-sm text-slate-600">GrabCar to Cam Ranh Airport (CXR).</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4 bg-teal-50/70 border border-teal-100">
+                        <div class="md:w-24 text-teal-700 font-semibold shrink-0 mt-1">7:25 PM</div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-1 text-teal-800">Flight Departs</h3>
+                            <p class="text-sm text-teal-700">TR 543 back to Singapore. (Arrival 11:00 PM)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= EXPENSES SECTION ================= -->
+        <section id="section-expenses" class="hidden space-y-6 fade-in">
+            
+            <div class="glass-card rounded-3xl p-5 md:p-7 shadow-sm border border-slate-200/60 relative overflow-hidden">
+                <!-- Decorative background blob -->
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-teal-100/50 rounded-full blur-3xl -z-10"></div>
+                
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-800">Record Expense</h2>
+                    <button onclick="toggleInstructions()" class="text-sm text-teal-700 font-semibold hover:text-teal-800 flex items-center gap-1.5 bg-teal-50/80 backdrop-blur-md px-3.5 py-2 rounded-full border border-teal-200/50 transition-colors shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        GSheet Fix
+                    </button>
+                </div>
+
+                <form id="expense-form" onsubmit="submitExpense(event)" class="space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1.5">Date</label>
+                            <input type="date" id="exp-date" required class="w-full bg-white/80 border border-slate-200 p-3.5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all text-slate-700 shadow-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1.5">Category</label>
+                            <select id="exp-category" class="w-full bg-white/80 border border-slate-200 p-3.5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all text-slate-700 appearance-none shadow-sm">
+                                <option value="Food 🍔">Food 🍔</option>
+                                <option value="Transport 🚕">Transport 🚕</option>
+                                <option value="Shopping 🛍️">Shopping 🛍️</option>
+                                <option value="Activity 🎟️">Activity 🎟️</option>
+                                <option value="Misc 💡">Misc 💡</option>
+                            </select>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block text-sm font-semibold text-slate-700 mb-1.5">Description</label>
+                            <input type="text" id="exp-desc" placeholder="e.g. Seafood Buffet at Novotel" required class="w-full bg-white/80 border border-slate-200 p-3.5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all text-slate-700 shadow-sm">
+                        </div>
+                        
+                        <div class="sm:col-span-2 grid grid-cols-[100px_1fr] gap-4 relative">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Currency</label>
+                                <select id="exp-currency" onchange="updateConversion()" class="w-full bg-white/80 border border-slate-200 p-3.5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all text-slate-700 appearance-none font-bold text-center shadow-sm">
+                                    <option value="VND">VND</option>
+                                    <option value="SGD">SGD</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Amount</label>
+                                <input type="number" id="exp-amount" step="0.01" placeholder="0" oninput="updateConversion()" required class="w-full bg-white/80 border border-slate-200 p-3.5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all text-slate-700 font-bold shadow-sm">
+                            </div>
+                        </div>
+                        
+                        <!-- Realtime conversion display -->
+                        <div class="sm:col-span-2 flex justify-end -mt-2">
+                            <span id="conversion-display" class="text-sm font-semibold text-amber-700 bg-amber-50 px-4 py-1.5 rounded-full border border-amber-200/60 shadow-sm">≈ $0.00 SGD</span>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" id="submit-btn" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-lg py-4 rounded-2xl shadow-lg shadow-teal-500/30 hover:shadow-teal-500/50 transition-all flex justify-center items-center gap-2 mt-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" /></svg>
+                        Add to Tracker
+                    </button>
+                </form>
+            </div>
+
+            <div class="glass-card rounded-3xl shadow-sm border border-slate-200/60 overflow-hidden mb-10">
+                <div class="bg-teal-900 text-white p-5 md:px-7 flex justify-between items-center">
+                    <h3 class="font-bold text-lg">Trip Ledger</h3>
+                    <div class="text-right">
+                        <div class="text-xs text-teal-200 font-medium uppercase tracking-wider mb-0.5">Total SGD Spent</div>
+                        <div class="text-3xl font-bold" id="total-amount">$0.00</div>
+                    </div>
+                </div>
+
+                <!-- ADDED THE MISSING EXPENSE LIST CONTAINER -->
+                <div id="expense-list-container" class="divide-y divide-slate-100 bg-white"></div>
+
+                <div class="p-6 bg-slate-50">
+                    <h3 class="font-bold text-slate-800 text-lg border-b pb-2 mb-4">How to Fix it & Enable Live Sync:</h3>
+                    
+                    <ol class="list-decimal pl-5 space-y-4 font-medium text-slate-700">
+                        <li>Open your Google Apps Script project.</li>
+                        <li>Replace your current code with the new code below. <br>
+                        <span class="text-teal-600 font-normal block mt-1">(This new code contains <code>doPost</code> to save data, and a new <code>doGet</code> to pull your data live!).</span></li>
+                        <li>Click <b>Deploy</b> -> <b>Manage deployments</b>.</li>
+                        <li>Click the pencil (Edit) icon.</li>
+                        <li>Make sure "Who has access" is set to <b>Anyone</b>.</li>
+                        <li>Click <b>Deploy</b> to save.</li>
+                    </ol>
+
+                    <div class="relative mt-4">
+                        <div class="absolute right-3 top-3">
+                            <button onclick="copyCode()" class="bg-white/20 hover:bg-white/40 text-teal-100 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition-colors shadow-sm backdrop-blur-sm border border-white/10">Copy Code</button>
+                        </div>
+<textarea id="gas-code" class="w-full h-72 bg-slate-900 text-teal-400 p-5 rounded-2xl font-mono text-xs focus:outline-none resize-none leading-relaxed" readonly>
+function doPost(e) {
+  try {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Nha Trang 2027 Expenses");
+    const data = JSON.parse(e.postData.contents);
+    
+    // Find the first empty row by looking ONLY at Column A.
+    const columnA = sheet.getRange("A:A").getValues();
+    let emptyRow = 1;
+    while (emptyRow <= columnA.length && columnA[emptyRow - 1][0] !== "") {
+      emptyRow++;
+    }
+    
+    // Write data strictly to Columns A, B, C, D, E
+    sheet.getRange(emptyRow, 1, 1, 5).setValues([[
+      data.date, 
+      data.category, 
+      data.description, 
+      data.sgd,
+      data.vnd
+    ]]);
+    
+    return ContentService.createTextOutput(JSON.stringify({"result": "success"}));
+  } catch(error) {
+    return ContentService.createTextOutput(JSON.stringify({"error": error.toString()}));
+  }
+}
+
+function doGet(e) {
+  try {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Nha Trang 2027 Expenses");
+    const values = sheet.getDataRange().getValues();
+    
+    // Skip header row (row 1) and only grab rows with a date
+    const rows = values.slice(1).filter(row => row[0] !== ""); 
+    
+    const expenses = rows.map(row => {
+      let dateVal = row[0];
+      // Format Google Sheet Date object to standard YYYY-MM-DD
+      if (Object.prototype.toString.call(dateVal) === '[object Date]') {
+        dateVal = Utilities.formatDate(dateVal, Session.getScriptTimeZone(), "yyyy-MM-dd");
+      } else {
+        dateVal = String(dateVal);
+      }
+      
+      return {
+        date: dateVal,
+        category: String(row[1]),
+        description: String(row[2]),
+        sgd: Number(row[3]) || 0,
+        vnd: Number(row[4]) || 0
+      };
+    });
+    
+    return ContentService.createTextOutput(JSON.stringify(expenses))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch(error) {
+    return ContentService.createTextOutput(JSON.stringify({"error": error.toString()}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 translate-y-20 opacity-0 bg-slate-800 text-white px-6 py-3.5 rounded-full shadow-2xl transition-all duration-300 z-50 font-medium text-sm flex items-center gap-2">
+        <span id="toast-icon">✅</span>
+        <span id="toast-msg">Success!</span>
+    </div>
+
+    <script>
+        // --- CONSTANTS ---
+        // Your Hardcoded Deployment URL (from User's provided link)
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbxem0-1HK7zUVqf0bsmr9f1d14SMZDExehW3awjsq24J4om_PI0tvU4-P-oLoYHrPoKOA/exec";
+        
+        // Exchange rate (approx 1 SGD = 20,500 VND)
+        const EXCHANGE_RATE = 20500;
+
+        // --- STATE ---
+        let appState = {
+            localExpenses: JSON.parse(localStorage.getItem('nhaTrangExpenses_v2')) || []
+        };
+
+        // --- INITIALIZATION ---
+        window.onload = () => {
+            document.getElementById('exp-date').valueAsDate = new Date();
+            renderLocalExpenses(); // Render what we have cached immediately
+            loadExpensesFromSheet(); // Then pull live data from Google Sheet
+        };
+
+        // --- PULL LIVE DATA FROM GSHEET ---
+        async function loadExpensesFromSheet() {
+            const container = document.getElementById('expense-list-container');
+            const totalAmount = document.getElementById('total-amount');
+            
+            // Show loading state
+            totalAmount.innerHTML = `<span class="animate-pulse text-xl text-teal-300">Syncing...</span>`;
+            
+            try {
+                // Perform a GET request to your Apps Script URL
+                const response = await fetch(GAS_URL);
+                
+                if (!response.ok) throw new Error("Network response was not ok");
+                
+                const liveData = await response.json();
+                
+                if (Array.isArray(liveData)) {
+                    appState.localExpenses = liveData;
+                    // Cache it locally so it loads instantly next time
+                    localStorage.setItem('nhaTrangExpenses_v2', JSON.stringify(appState.localExpenses));
+                    renderLocalExpenses();
+                } else {
+                    console.warn("Unexpected data format from sheet", liveData);
+                    renderLocalExpenses(); // Fallback to local
+                }
+            } catch(error) {
+                console.warn("Live fetch unavailable (waiting for GAS deployment or offline). Showing local data.", error.message);
+                renderLocalExpenses(); // Fallback to local gracefully
+                showToast("Viewing offline mode.", "⚠️");
+            }
+        }
+
+        // --- UI TAB SWITCHING ---
+        function switchTab(tabId) {
+            const itinerarySec = document.getElementById('section-itinerary');
+            const expensesSec = document.getElementById('section-expenses');
+            const itineraryBtn = document.getElementById('tab-itinerary');
+            const expensesBtn = document.getElementById('tab-expenses');
+
+            const activeClass = "flex-1 py-2.5 rounded-xl font-medium text-sm transition-all tab-active";
+            const inactiveClass = "flex-1 py-2.5 rounded-xl font-medium text-sm transition-all tab-inactive";
+
+            if (tabId === 'itinerary') {
+                itinerarySec.classList.remove('hidden');
+                expensesSec.classList.add('hidden');
+                itineraryBtn.className = activeClass;
+                expensesBtn.className = inactiveClass;
+            } else {
+                itinerarySec.classList.add('hidden');
+                expensesSec.classList.remove('hidden');
+                expensesBtn.className = activeClass;
+                itineraryBtn.className = inactiveClass;
+            }
+        }
+
+        // --- CURRENCY CALCULATOR UI ---
+        function updateConversion() {
+            const amtStr = document.getElementById('exp-amount').value;
+            const amt = parseFloat(amtStr) || 0;
+            const curr = document.getElementById('exp-currency').value;
+            const display = document.getElementById('conversion-display');
+            
+            if(curr === 'SGD') {
+                const vndAmt = amt * EXCHANGE_RATE;
+                display.innerText = `≈ ${vndAmt.toLocaleString('en-US')} VND`;
+                display.className = "text-sm font-semibold text-teal-700 bg-teal-50 px-4 py-1.5 rounded-full border border-teal-200/60 shadow-sm";
+            } else {
+                const sgdAmt = amt / EXCHANGE_RATE;
+                display.innerText = `≈ $${sgdAmt.toFixed(2)} SGD`;
+                display.className = "text-sm font-semibold text-amber-700 bg-amber-50 px-4 py-1.5 rounded-full border border-amber-200/60 shadow-sm";
+            }
+        }
+
+        // --- RENDER EXPENSE LEDGER (GROUPED BY DAY) ---
+        function renderLocalExpenses() {
+            const container = document.getElementById('expense-list-container');
+            if (!container) return; // Prevent error if container is null
+            container.innerHTML = ''; 
+            let totalSGD = 0; 
+
+            // Base pre-trip data
+            const preTrip = [
+                { date: 'Pre-Trip', category: 'Flight ✈️', description: 'Sg-Nha Trang (Seats incld)', sgd: 283.03, vnd: 0 },
+                { date: 'Pre-Trip', category: 'Hotel 🏨', description: 'Havana Junior King suite', sgd: 0, vnd: 0 }
+            ];
+
+            const allExpenses = [...preTrip, ...appState.localExpenses];
+
+            const groups = {
+                'Pre-Trip': [],
+                'Day 1 (Jan 22)': [],
+                'Day 2 (Jan 23)': [],
+                'Day 3 (Jan 24)': [],
+                'Other': []
+            };
+
+            // Categorize
+            allExpenses.forEach(exp => {
+                const s = parseFloat(exp.sgd) || 0;
+                totalSGD += s;
+                
+                if (exp.date === 'Pre-Trip') {
+                    groups['Pre-Trip'].push(exp);
+                } else if (exp.date === '2027-01-22') {
+                    groups['Day 1 (Jan 22)'].push(exp);
+                } else if (exp.date === '2027-01-23') {
+                    groups['Day 2 (Jan 23)'].push(exp);
+                } else if (exp.date === '2027-01-24') {
+                    groups['Day 3 (Jan 24)'].push(exp);
+                } else {
+                    groups['Other'].push(exp);
+                }
+            });
+
+            // Update Total Header
+            document.getElementById('total-amount').innerText = `$${totalSGD.toFixed(2)}`;
+
+            // Render Groups
+            const order = ['Day 1 (Jan 22)', 'Day 2 (Jan 23)', 'Day 3 (Jan 24)', 'Other', 'Pre-Trip'];
+            
+            order.forEach(groupName => {
+                const groupItems = groups[groupName];
+                if(groupItems.length === 0) return;
+
+                // Group Header
+                const headerDiv = document.createElement('div');
+                headerDiv.className = 'bg-slate-50/80 px-5 py-2.5 text-xs font-bold text-slate-500 uppercase tracking-wider border-y border-slate-100';
+                headerDiv.innerText = groupName;
+                container.appendChild(headerDiv);
+
+                // Group Items
+                groupItems.forEach(exp => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'p-5 flex justify-between items-center bg-white hover:bg-slate-50 transition-colors';
+                    
+                    const isPreTrip = exp.date === 'Pre-Trip';
+                    // Determine which currency to show prominently
+                    const mainAmountStr = parseFloat(exp.sgd) > 0 && isPreTrip 
+                        ? `$${parseFloat(exp.sgd).toFixed(2)}` 
+                        : (parseFloat(exp.vnd) > 0 ? `${parseFloat(exp.vnd).toLocaleString('en-US')} ₫` : `$${parseFloat(exp.sgd).toFixed(2)}`);
+                    
+                    const subAmountStr = parseFloat(exp.vnd) > 0 && !isPreTrip
+                        ? `($${parseFloat(exp.sgd).toFixed(2)})`
+                        : '';
+
+                    itemDiv.innerHTML = `
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-teal-50 flex items-center justify-center text-xl shadow-sm border border-teal-100/50">
+                                ${exp.category.split(' ')[1] || '💵'}
+                            </div>
+                            <div>
+                                <div class="font-bold text-slate-800 text-sm md:text-base">${exp.description}</div>
+                                <div class="text-xs text-slate-500 font-medium">${exp.category.split(' ')[0]}</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-teal-800 text-sm md:text-base">
+                                ${mainAmountStr}
+                            </div>
+                            ${subAmountStr ? `<div class="text-xs text-slate-400 font-medium">${subAmountStr}</div>` : ''}
+                        </div>
+                    `;
+                    container.appendChild(itemDiv);
+                });
+            });
+        }
+
+        // --- SUBMIT EXPENSE ---
+        async function submitExpense(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submit-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending...';
+            btn.disabled = true;
+
+            const date = document.getElementById('exp-date').value;
+            const category = document.getElementById('exp-category').value;
+            const desc = document.getElementById('exp-desc').value;
+            const currency = document.getElementById('exp-currency').value;
+            const amount = parseFloat(document.getElementById('exp-amount').value);
+
+            let sgd = 0;
+            let vnd = 0;
+
+            if(currency === 'SGD') {
+                sgd = amount;
+                vnd = amount * EXCHANGE_RATE;
+            } else {
+                vnd = amount;
+                sgd = amount / EXCHANGE_RATE;
+            }
+
+            const payload = { date, category, description: desc, sgd, vnd };
+
+            try {
+                // Post to Google Apps Script
+                await fetch(GAS_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Essential for Apps script to bypass strict CORS blocking for writes
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                // Optimistically add to list and render instantly
+                appState.localExpenses.push(payload);
+                localStorage.setItem('nhaTrangExpenses_v2', JSON.stringify(appState.localExpenses));
+                
+                // Reset Form (keep date and category)
+                document.getElementById('exp-desc').value = '';
+                document.getElementById('exp-amount').value = '';
+                document.getElementById('exp-currency').value = 'VND'; // default back to VND
+                updateConversion();
+                renderLocalExpenses();
+                
+                showToast("Saved to Google Sheet!", "✅");
+                
+                // Silently refresh full list in background just to be perfectly synced
+                loadExpensesFromSheet();
+
+            } catch (error) {
+                console.error("Error:", error);
+                showToast("Failed to save. Check internet.", "❌");
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        // --- UTILS ---
+        function showToast(msg, icon) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = msg;
+            document.getElementById('toast-icon').innerText = icon;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3500);
+        }
+
+        function toggleInstructions() {
+            const modal = document.getElementById('instructions-modal');
+            const content = document.getElementById('modal-content');
+            
+            if(modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                void modal.offsetWidth; // Reflow
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+            } else {
+                modal.classList.add('opacity-0');
+                content.classList.add('scale-95');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        function copyCode() {
+            const code = document.getElementById('gas-code');
+            code.select();
+            document.execCommand('copy');
+            showToast("Script code copied!", "📋");
+        }
+    </script>
+</body>
+</html>
