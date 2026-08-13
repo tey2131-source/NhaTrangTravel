@@ -18,27 +18,16 @@
     <style>
         body {
             font-family: 'Outfit', sans-serif;
-            background-color: #fdfbf7; /* Warm sand */
+            background-color: #fdfbf7;
             background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
             background-size: 20px 20px;
         }
         
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
-        /* Glassmorphism Cards */
         .glass-card {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
@@ -46,9 +35,8 @@
             box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
         }
 
-        /* Tabs */
         .tab-active {
-            background-color: #0f766e; /* Tropical Teal */
+            background-color: #0f766e;
             color: white;
             box-shadow: 0 4px 12px -2px rgba(15, 118, 110, 0.4);
         }
@@ -63,7 +51,6 @@
             color: #0f766e;
         }
 
-        /* Map Links */
         .map-link {
             color: #0f766e;
             font-weight: 500;
@@ -77,14 +64,11 @@
             text-decoration-color: rgba(15, 118, 110, 0.8);
         }
 
-        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .fade-in {
-            animation: fadeIn 0.4s ease-out forwards;
-        }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
     </style>
 </head>
 <body class="text-slate-800 min-h-screen pb-20 selection:bg-teal-200 selection:text-teal-900">
@@ -100,7 +84,7 @@
         </h1>
         <p class="text-slate-500 font-medium mb-2">Jan 22 - Jan 24, 2027 • Havana Hotel</p>
         
-        <!-- PWA Install Button (Hidden by default, shows when device allows install) -->
+        <!-- PWA Install Button -->
         <button id="install-btn" class="hidden mx-auto mt-2 bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-full text-sm font-bold shadow-md shadow-teal-500/30 transition-all flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
             Install App to Phone
@@ -242,23 +226,6 @@
                     <!-- Transit -->
                     <div class="pl-4 md:pl-[7.5rem] py-1 flex items-center gap-2 opacity-80">
                         <div class="bg-white rounded-full p-1.5 shadow-sm border border-slate-200 text-[10px] leading-none">🚕</div>
-                        <div class="text-[11px] font-bold text-slate-400 tracking-widest uppercase">4 min drive (1.2 km)</div>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
-                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">2:00 PM</div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-1">Shopping & AC Break</h3>
-                            <p class="text-sm text-slate-600">
-                                <a href="https://www.google.com/maps/search/?api=1&query=Gold+Coast+Mall+Nha+Trang" target="_blank" class="map-link">📍 Gold Coast Mall</a> / Lotte Mart (1 Tran Phu)
-                            </p>
-                            <p class="text-sm text-slate-500">Supermarket snacks and enjoy the air conditioning.</p>
-                        </div>
-                    </div>
-
-                    <!-- Transit -->
-                    <div class="pl-4 md:pl-[7.5rem] py-1 flex items-center gap-2 opacity-80">
-                        <div class="bg-white rounded-full p-1.5 shadow-sm border border-slate-200 text-[10px] leading-none">🚕</div>
                         <div class="text-[11px] font-bold text-slate-400 tracking-widest uppercase">15 min drive (7 km)</div>
                     </div>
 
@@ -344,23 +311,6 @@
                     <!-- Transit -->
                     <div class="pl-4 md:pl-[7.5rem] py-1 flex items-center gap-2 opacity-80">
                         <div class="bg-white rounded-full p-1.5 shadow-sm border border-slate-200 text-[10px] leading-none">🚕</div>
-                        <div class="text-[11px] font-bold text-slate-400 tracking-widest uppercase">3 min drive (1 km)</div>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-4 md:p-5 flex flex-col md:flex-row gap-4">
-                        <div class="md:w-24 text-slate-500 font-semibold shrink-0 mt-1">3:30 PM</div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-1">Cafe & Cake</h3>
-                            <p class="text-sm text-slate-600">
-                                <a href="https://www.google.com/maps/search/?api=1&query=Red+Gate+Bakery+Nha+Trang" target="_blank" class="map-link">📍 Red Gate Bakery</a> or Iced Coffee
-                            </p>
-                            <p class="text-sm text-slate-500">Relax before the flight with some coffee and birthday cake.</p>
-                        </div>
-                    </div>
-
-                    <!-- Transit -->
-                    <div class="pl-4 md:pl-[7.5rem] py-1 flex items-center gap-2 opacity-80">
-                        <div class="bg-white rounded-full p-1.5 shadow-sm border border-slate-200 text-[10px] leading-none">🚕</div>
                         <div class="text-[11px] font-bold text-slate-400 tracking-widest uppercase">45 min drive (35 km)</div>
                     </div>
 
@@ -388,13 +338,10 @@
 
         <!-- ================= EXPENSES SECTION ================= -->
         <section id="section-expenses" class="hidden space-y-6 fade-in">
-            
             <div class="glass-card rounded-3xl p-5 md:p-7 shadow-sm border border-slate-200/60 relative overflow-hidden">
                 <div class="absolute -right-20 -top-20 w-64 h-64 bg-teal-100/50 rounded-full blur-3xl -z-10"></div>
                 
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-2xl font-bold text-slate-800">Record Expense</h2>
-                </div>
+                <h2 class="text-2xl font-bold text-slate-800 mb-6">Record Expense</h2>
 
                 <form id="expense-form" onsubmit="submitExpense(event)" class="space-y-5">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -414,15 +361,16 @@
                         </div>
                         <div class="sm:col-span-2">
                             <label class="block text-sm font-semibold text-slate-700 mb-1.5">Description</label>
-                            <input type="text" id="exp-desc" placeholder="e.g. Seafood Buffet at Novotel" required class="w-full bg-white/80 border border-slate-200 p-3.5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all text-slate-700 shadow-sm">
+                            <input type="text" id="exp-desc" placeholder="e.g. Seafood Buffet" required class="w-full bg-white/80 border border-slate-200 p-3.5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all text-slate-700 shadow-sm">
                         </div>
                         
-                        <div class="sm:col-span-2 grid grid-cols-[100px_1fr] gap-4 relative">
+                        <div class="sm:col-span-2 grid grid-cols-[110px_1fr] gap-4 relative">
                             <div>
                                 <label class="block text-sm font-semibold text-slate-700 mb-1.5">Currency</label>
+                                <!-- The JavaScript will automatically populate these options based on your CONFIG -->
                                 <select id="exp-currency" onchange="updateConversion()" class="w-full bg-white/80 border border-slate-200 p-3.5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all text-slate-700 appearance-none font-bold text-center shadow-sm">
-                                    <option value="VND">VND</option>
-                                    <option value="SGD">SGD</option>
+                                    <option value="LOCAL" id="opt-local">Local</option>
+                                    <option value="HOME" id="opt-home">Home</option>
                                 </select>
                             </div>
                             <div>
@@ -432,7 +380,7 @@
                         </div>
                         
                         <div class="sm:col-span-2 flex justify-end -mt-2">
-                            <span id="conversion-display" class="text-sm font-semibold text-amber-700 bg-amber-50 px-4 py-1.5 rounded-full border border-amber-200/60 shadow-sm">≈ $0.00 SGD</span>
+                            <span id="conversion-display" class="text-sm font-semibold text-amber-700 bg-amber-50 px-4 py-1.5 rounded-full border border-amber-200/60 shadow-sm">≈ $0.00</span>
                         </div>
                     </div>
                     
@@ -447,13 +395,12 @@
                 <div class="bg-teal-900 text-white p-5 md:px-7 flex justify-between items-center">
                     <div class="flex items-center gap-3">
                         <h3 class="font-bold text-lg">Trip Ledger</h3>
-                        
                         <button type="button" onclick="loadExpensesFromSheet()" class="p-2 bg-teal-800 hover:bg-teal-700 text-teal-100 rounded-full transition-colors shadow-sm" title="Manual Sync with Google Sheets">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
                         </button>
                     </div>
                     <div class="text-right">
-                        <div class="text-xs text-teal-200 font-medium uppercase tracking-wider mb-0.5">Total SGD Spent</div>
+                        <div class="text-xs text-teal-200 font-medium uppercase tracking-wider mb-0.5" id="total-label">Total Spent</div>
                         <div class="text-3xl font-bold" id="total-amount">$0.00</div>
                     </div>
                 </div>
@@ -463,29 +410,48 @@
         </section>
     </main>
 
-    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 translate-y-20 opacity-0 bg-slate-800 text-white px-6 py-3.5 rounded-full shadow-2xl transition-all duration-300 z-50 font-medium text-sm flex items-center gap-2">
+    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 translate-y-20 opacity-0 bg-slate-800 text-white px-6 py-3.5 rounded-full shadow-2xl transition-all duration-300 z-50 font-medium text-sm flex items-center gap-2 pointer-events-none">
         <span id="toast-icon">✅</span>
         <span id="toast-msg">Success!</span>
     </div>
 
     <script>
-        // --- HARDCODED APPS SCRIPT URL ---
-        const GAS_URL = "https://script.google.com/macros/s/AKfycbxem0-1HK7zUVqf0bsmr9f1d14SMZDExehW3awjsq24J4om_PI0tvU4-P-oLoYHrPoKOA/exec";
-        
-        // Exchange rate (approx 1 SGD = 20,500 VND)
-        const EXCHANGE_RATE = 20500;
+        // =====================================================================
+        // TRIP CONFIGURATION - CHANGE ONLY THIS BLOCK FOR FUTURE TRIPS!
+        // =====================================================================
+        const CONFIG = {
+            GAS_URL: "https://script.google.com/macros/s/AKfycby0_PlQlmC9Fzd6f6P_ng5jKV_3JjaNXokXICdStSg3DkvZKVRX0I2DV-vpa8t3eH-RFg/exec", // Update this if you deploy a new script
+            SHEET_NAME: "Nha Trang 2027 Expenses", // The EXACT name of the Tab in your Google Sheet
+            EXCHANGE_RATE: 20500,                  // E.g. 1 SGD = 20,500 VND
+            LOCAL_CURRENCY: "VND",                 // The foreign currency code
+            HOME_CURRENCY: "SGD"                   // Your home currency code
+        };
+        // =====================================================================
 
+        // Unique storage key so trips don't overwrite each other locally
+        const STORAGE_KEY = 'expenses_' + CONFIG.SHEET_NAME.replace(/[^a-zA-Z0-9]/g, "");
+        
         let appState = {
-            localExpenses: JSON.parse(localStorage.getItem('nhaTrangExpenses_v3')) || []
+            localExpenses: JSON.parse(localStorage.getItem(STORAGE_KEY)) || []
         };
 
         window.onload = () => {
+            // PWA Registration
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('sw.js')
                     .then(() => console.log("PWA Ready!"))
                     .catch(err => console.log("PWA Error:", err));
             }
+
             document.getElementById('exp-date').valueAsDate = new Date();
+            
+            // Set up currency options dynamically based on CONFIG
+            document.getElementById('opt-local').innerText = CONFIG.LOCAL_CURRENCY;
+            document.getElementById('opt-local').value = "LOCAL";
+            document.getElementById('opt-home').innerText = CONFIG.HOME_CURRENCY;
+            document.getElementById('opt-home').value = "HOME";
+            document.getElementById('total-label').innerText = `Total ${CONFIG.HOME_CURRENCY} Spent`;
+
             renderLocalExpenses(); 
             loadExpensesFromSheet(); 
         };
@@ -518,22 +484,22 @@
         async function loadExpensesFromSheet() {
             const container = document.getElementById('expense-list-container');
             const totalAmount = document.getElementById('total-amount');
-            
-            if(!container) return; // safety check
+            if(!container) return; 
             
             totalAmount.innerHTML = `<span class="animate-pulse text-xl text-teal-300">Syncing...</span>`;
             
             try {
-                const response = await fetch(GAS_URL);
+                const url = `${CONFIG.GAS_URL}?sheetName=${encodeURIComponent(CONFIG.SHEET_NAME)}`;
+                const response = await fetch(url);
                 if (!response.ok) throw new Error("Network response was not ok");
                 
                 const liveData = await response.json();
                 
                 if (Array.isArray(liveData)) {
                     appState.localExpenses = liveData;
-                    localStorage.setItem('nhaTrangExpenses_v3', JSON.stringify(appState.localExpenses));
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(appState.localExpenses));
                     renderLocalExpenses();
-                    showToast("Synced with Google Sheets!", "🔄");
+                    showToast(`Synced with ${CONFIG.SHEET_NAME}!`, "🔄");
                 }
             } catch(error) {
                 console.warn("Live fetch failed. Showing local data.", error);
@@ -547,82 +513,67 @@
             const expensesSec = document.getElementById('section-expenses');
             const itineraryBtn = document.getElementById('tab-itinerary');
             const expensesBtn = document.getElementById('tab-expenses');
-
             const activeClass = "flex-1 py-2.5 rounded-xl font-medium text-sm transition-all tab-active";
             const inactiveClass = "flex-1 py-2.5 rounded-xl font-medium text-sm transition-all tab-inactive";
 
             if (tabId === 'itinerary') {
-                itinerarySec.classList.remove('hidden');
-                expensesSec.classList.add('hidden');
-                itineraryBtn.className = activeClass;
-                expensesBtn.className = inactiveClass;
+                itinerarySec.classList.remove('hidden'); expensesSec.classList.add('hidden');
+                itineraryBtn.className = activeClass; expensesBtn.className = inactiveClass;
             } else {
-                itinerarySec.classList.add('hidden');
-                expensesSec.classList.remove('hidden');
-                expensesBtn.className = activeClass;
-                itineraryBtn.className = inactiveClass;
+                itinerarySec.classList.add('hidden'); expensesSec.classList.remove('hidden');
+                expensesBtn.className = activeClass; itineraryBtn.className = inactiveClass;
             }
         }
 
         function updateConversion() {
             const amtStr = document.getElementById('exp-amount').value;
             const amt = parseFloat(amtStr) || 0;
-            const curr = document.getElementById('exp-currency').value;
+            const currencyType = document.getElementById('exp-currency').value;
             const display = document.getElementById('conversion-display');
             
-            if(curr === 'SGD') {
-                const vndAmt = amt * EXCHANGE_RATE;
-                display.innerText = `≈ ${vndAmt.toLocaleString('en-US')} VND`;
+            if(currencyType === 'HOME') {
+                const localAmt = amt * CONFIG.EXCHANGE_RATE;
+                display.innerText = `≈ ${localAmt.toLocaleString('en-US')} ${CONFIG.LOCAL_CURRENCY}`;
                 display.className = "text-sm font-semibold text-teal-700 bg-teal-50 px-4 py-1.5 rounded-full border border-teal-200/60 shadow-sm";
             } else {
-                const sgdAmt = amt / EXCHANGE_RATE;
-                display.innerText = `≈ $${sgdAmt.toFixed(2)} SGD`;
+                const homeAmt = amt / CONFIG.EXCHANGE_RATE;
+                display.innerText = `≈ $${homeAmt.toFixed(2)} ${CONFIG.HOME_CURRENCY}`;
                 display.className = "text-sm font-semibold text-amber-700 bg-amber-50 px-4 py-1.5 rounded-full border border-amber-200/60 shadow-sm";
             }
         }
 
         function renderLocalExpenses() {
             const container = document.getElementById('expense-list-container');
-            if (!container) return; // Exit if DOM isn't ready
+            if (!container) return; 
             
             container.innerHTML = ''; 
-            let totalSGD = 0; 
+            let totalHomeAmount = 0; 
 
+            // Pre-trip items mapping specifically to your hardcoded UI
             const preTrip = [
-                { date: 'Pre-Trip', category: 'Flight ✈️', description: 'Sg-Nha Trang (Seats incld)', sgd: 283.03, vnd: 0 },
-                { date: 'Pre-Trip', category: 'Hotel 🏨', description: 'Havana Junior King suite', sgd: 0, vnd: 0 }
+                { date: 'Pre-Trip', category: 'Flight ✈️', description: 'Sg-Nha Trang (Seats incld)', homeAmount: 283.03, localAmount: 0 },
+                { date: 'Pre-Trip', category: 'Hotel 🏨', description: 'Havana Junior King suite', homeAmount: 0, localAmount: 0 }
             ];
 
             const allExpenses = [...preTrip, ...appState.localExpenses];
-
-            const groups = {
-                'Pre-Trip': [],
-                'Day 1 (Jan 22)': [],
-                'Day 2 (Jan 23)': [],
-                'Day 3 (Jan 24)': [],
-                'Other': []
-            };
+            const groups = {};
 
             allExpenses.forEach(exp => {
-                const s = parseFloat(exp.sgd) || 0;
-                totalSGD += s;
+                const s = parseFloat(exp.homeAmount) || 0;
+                totalHomeAmount += s;
                 
-                if (exp.date === 'Pre-Trip') {
-                    groups['Pre-Trip'].push(exp);
-                } else if (exp.date === '2027-01-22') {
-                    groups['Day 1 (Jan 22)'].push(exp);
-                } else if (exp.date === '2027-01-23') {
-                    groups['Day 2 (Jan 23)'].push(exp);
-                } else if (exp.date === '2027-01-24') {
-                    groups['Day 3 (Jan 24)'].push(exp);
-                } else {
-                    groups['Other'].push(exp);
-                }
+                let groupKey = exp.date;
+                if (!groups[groupKey]) { groups[groupKey] = []; }
+                groups[groupKey].push(exp);
             });
 
-            document.getElementById('total-amount').innerText = `$${totalSGD.toFixed(2)}`;
+            document.getElementById('total-amount').innerText = `$${totalHomeAmount.toFixed(2)}`;
 
-            const order = ['Day 1 (Jan 22)', 'Day 2 (Jan 23)', 'Day 3 (Jan 24)', 'Other', 'Pre-Trip'];
+            const order = Object.keys(groups).sort((a, b) => {
+                if (a === 'Pre-Trip') return 1; 
+                if (b === 'Pre-Trip') return -1;
+                return b.localeCompare(a); 
+            });
             
             order.forEach(groupName => {
                 const groupItems = groups[groupName];
@@ -630,7 +581,13 @@
 
                 const headerDiv = document.createElement('div');
                 headerDiv.className = 'bg-slate-50/80 px-5 py-2.5 text-xs font-bold text-slate-500 uppercase tracking-wider border-y border-slate-100';
-                headerDiv.innerText = groupName;
+                
+                let formattedHeader = groupName;
+                if(groupName.match(/^\d{4}-\d{2}-\d{2}$/)) {
+                    formattedHeader = new Date(groupName).toLocaleDateString('en-US', {weekday: 'short', month: 'short', day: 'numeric'});
+                }
+                headerDiv.innerText = formattedHeader;
+                
                 container.appendChild(headerDiv);
 
                 groupItems.forEach(exp => {
@@ -638,12 +595,12 @@
                     itemDiv.className = 'p-5 flex justify-between items-center bg-white hover:bg-slate-50 transition-colors';
                     
                     const isPreTrip = exp.date === 'Pre-Trip';
-                    const mainAmountStr = parseFloat(exp.sgd) > 0 && isPreTrip 
-                        ? `$${parseFloat(exp.sgd).toFixed(2)}` 
-                        : (parseFloat(exp.vnd) > 0 ? `${parseFloat(exp.vnd).toLocaleString('en-US')} ₫` : `$${parseFloat(exp.sgd).toFixed(2)}`);
+                    const mainAmountStr = parseFloat(exp.homeAmount) > 0 && isPreTrip 
+                        ? `$${parseFloat(exp.homeAmount).toFixed(2)}` 
+                        : (parseFloat(exp.localAmount) > 0 ? `${parseFloat(exp.localAmount).toLocaleString('en-US')} ${CONFIG.LOCAL_CURRENCY}` : `$${parseFloat(exp.homeAmount).toFixed(2)}`);
                     
-                    const subAmountStr = parseFloat(exp.vnd) > 0 && !isPreTrip
-                        ? `($${parseFloat(exp.sgd).toFixed(2)})`
+                    const subAmountStr = parseFloat(exp.localAmount) > 0 && !isPreTrip
+                        ? `($${parseFloat(exp.homeAmount).toFixed(2)} ${CONFIG.HOME_CURRENCY})`
                         : '';
 
                     itemDiv.innerHTML = `
@@ -657,9 +614,7 @@
                             </div>
                         </div>
                         <div class="text-right">
-                            <div class="font-bold text-teal-800 text-sm md:text-base">
-                                ${mainAmountStr}
-                            </div>
+                            <div class="font-bold text-teal-800 text-sm md:text-base">${mainAmountStr}</div>
                             ${subAmountStr ? `<div class="text-xs text-slate-400 font-medium">${subAmountStr}</div>` : ''}
                         </div>
                     `;
@@ -679,24 +634,31 @@
             const date = document.getElementById('exp-date').value;
             const category = document.getElementById('exp-category').value;
             const desc = document.getElementById('exp-desc').value;
-            const currency = document.getElementById('exp-currency').value;
+            const currencyType = document.getElementById('exp-currency').value;
             const amount = parseFloat(document.getElementById('exp-amount').value);
 
-            let sgd = 0;
-            let vnd = 0;
+            let homeAmt = 0;
+            let localAmt = 0;
 
-            if(currency === 'SGD') {
-                sgd = amount;
-                vnd = amount * EXCHANGE_RATE;
+            if(currencyType === 'HOME') {
+                homeAmt = amount;
+                localAmt = amount * CONFIG.EXCHANGE_RATE;
             } else {
-                vnd = amount;
-                sgd = amount / EXCHANGE_RATE;
+                localAmt = amount;
+                homeAmt = amount / CONFIG.EXCHANGE_RATE;
             }
 
-            const payload = { date, category, description: desc, sgd, vnd };
+            const payload = { 
+                sheetName: CONFIG.SHEET_NAME,
+                date: date, 
+                category: category, 
+                description: desc, 
+                homeAmount: homeAmt, 
+                localAmount: localAmt 
+            };
 
             try {
-                await fetch(GAS_URL, {
+                await fetch(CONFIG.GAS_URL, {
                     method: 'POST',
                     mode: 'no-cors', 
                     headers: { 'Content-Type': 'application/json' },
@@ -704,17 +666,15 @@
                 });
 
                 appState.localExpenses.push(payload);
-                localStorage.setItem('nhaTrangExpenses_v3', JSON.stringify(appState.localExpenses));
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(appState.localExpenses));
                 
                 document.getElementById('exp-desc').value = '';
                 document.getElementById('exp-amount').value = '';
-                document.getElementById('exp-currency').value = 'VND'; 
+                document.getElementById('exp-currency').value = 'LOCAL'; 
                 updateConversion();
                 renderLocalExpenses();
                 
                 showToast("Saved to Google Sheet!", "✅");
-                
-                // Silently pull full list in background just to be perfectly synced
                 setTimeout(loadExpensesFromSheet, 1000);
 
             } catch (error) {
